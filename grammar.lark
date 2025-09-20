@@ -1,0 +1,21 @@
+start: widget+
+
+widget: widget_type id? class? params? content?
+
+widget_type: "grid" | "button" | "text" | "header" | "footer" | "input" | "checkbox"
+
+id: "#" ID
+class: "." ID
+params: "("[key_value ("," key_value)* ]")"
+content: "[" widget* "]"
+
+key_value: ID = value
+value: ESCAPED_STRING | SIGNED_NUMBER | "True" -> true | "False" -> false
+
+ID: /[a-zA-Z_]\w*/
+
+%import common.ESCAPED_STRING
+%import common.SIGNED_NUMBER
+%import common.WS
+
+%ignore WS
