@@ -1,0 +1,43 @@
+# This section tells pip what tools are needed to build your project.
+# For most projects, this is all you need.
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# This is the main section for your project's metadata.
+[project]
+# IMPORTANT: This name must be unique if you ever publish to PyPI.
+# 'rune' is likely taken, so choose something unique.
+name = "rune-tui" 
+version = "0.1.0"
+authors = [
+  { name="Sahil Patel", email="sahil.h.patel@gmail.com" },
+]
+description = "A declarative markup language for creating Textual TUI applications."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Terminals",
+]
+
+# This is where you list your project's dependencies.
+# pip will automatically install these when your project is installed.
+dependencies = [
+    "lark",
+    "textual",
+]
+
+# This section is optional but good practice.
+[project.urls]
+Homepage = "https://github.com/sahil-h-patel/rune"
+Issues = "https://github.com/sahil-h-patel/rune/issues"
+
+
+# This section creates the command-line script.
+# It tells pip to create a command named 'rune' that runs the 'main' function
+# inside the 'rune.__main__' module.
+[project.scripts]
+rune = "rune.__main__:main"

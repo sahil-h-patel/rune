@@ -1,0 +1,15 @@
+header(tall=False)
+
+grid#login_grid.form-container()
+    
+    "Please enter your credentials to continue."
+
+    input#username_input(placeholder="Username")
+    
+    input#password_input(placeholder="Password", password=True)
+
+    horizontal()
+        button#submit_button(label="Submit", variant="primary")
+        button#quit_button(label="Quit", variant="error")
+
+footer()

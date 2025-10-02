@@ -1,14 +1,11 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Header, Footer, Static
-from textual.containers import Horizontal
+import rune
 
+BINDINGS = [
+    ("ctrl+c", "quit", "Quit"),
+]
 class MyApp(App):
-    BINDINGS = [
-        ("ctrl+c", "quit", "Quit"),
-    ]
-
     def compose(self) -> ComposeResult:
-        yield Static("Hello World!")
-        yield Horizontal(Static("Left"), Static("Center"), Static("Right"))
+        yield from rune.load("login_form.rune")
 
-MyApp().run(inline=True)
+MyApp().run()
